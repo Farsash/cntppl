@@ -1,4 +1,4 @@
-var data = `
+const data = `
 
 1. АБАДИЕВ МАГОМЕД МИКАИЛОВИЧ*, 09.11.1982 г.р. , Г. НАЗРАНЬ ЧИАССР;
 2. АБАЕВ АСЛАНБЕК БАУДИНОВИЧ*, 29.05.1983 г.р. , Г. ГРОЗНЫЙ ЧИАССР;
@@ -8477,3 +8477,54 @@ var data = `
 8475. ЯШУЕВ ТАМЕРЛАН САЙДМАГОМЕДОВИЧ*, 03.08.1983 г.р. , Н.П. КОШКЕЛЬДЫ ГУДЕРМЕССКОГО РАЙОНА ЧИАССР;
 8476. ЯШУРКАЕВ ИСМАИЛ СУЛТАНОВИЧ*, 21.05.1989 г.р. , С. СТАРАЯ СУНЖА ГРОЗНЕНСКОГО РАЙОНА ЧИАССР;
 `
+
+var obj2 = {};
+var arr2 = [];
+var _khe = {};
+
+const re = /(\d{2})\. ?(\d{2})\. ?(\d{4})/
+const years = data.split('\n').map(line => {
+    const matches = line.match(re)
+    return ( matches && matches[3]) || false
+}).filter(v => !!v)
+
+const counted = years.reduce((obj, year) => {
+if (!obj[year]) {
+    obj[year] = 0
+}
+obj[year]++
+return obj
+}, {})
+
+
+CountPpl();
+
+
+
+var _newArr2 = SelectionSort2(arr2);
+arr2 = _newArr2;
+console.log('years', years);
+console.log('arr2', arr2);
+
+function CountPpl(){
+    for( var i = 0; i < years.length; i++){
+          if ( !_khe[years[i]] ){
+              arr2.push(years[i]);
+              _khe[years[i]] = true;
+              console.log("arr2", years[i]);
+          }
+    }
+}
+
+
+
+function SelectionSort2(A){ // отсортировать по возрастанию.
+    var n = A.length;
+    for (var i = 0; i < n-1; i++)
+     { var min = i;
+       for (var j = i+1; j < n; j++)
+        { if (A[j] < A[min]) min = j; } 
+       var t = A[min]; A[min] = A[ i ]; A[ i ] = t;
+     }                    
+    return A;
+}
