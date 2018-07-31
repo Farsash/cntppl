@@ -8499,19 +8499,14 @@ return obj
 
 CountPpl();
 
-
-
 var _newArr2 = SelectionSort2(arr2);
 arr2 = _newArr2;
-console.log('years', years);
-console.log('arr2', arr2);
 
 function CountPpl(){
     for( var i = 0; i < years.length; i++){
           if ( !_khe[years[i]] ){
               arr2.push(years[i]);
               _khe[years[i]] = true;
-              console.log("arr2", years[i]);
           }
     }
 }

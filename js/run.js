@@ -66,8 +66,7 @@ var DrawCanvas = {
       
     for( var i = 0; i < arr2.length; i++){
        
-        var count = counted[arr2[i]];
-        console.log("counted[arr2[i]]", counted[arr2[i]]);
+        var count = counted[arr2[i]] * 1.4;
         var ctx = canvas.getContext("2d");
         ctx.fillStyle = "#FF0000";
         ctx.fillRect( k , this.start - count - 50, 20 , count);
@@ -89,5 +88,3 @@ var DrawCanvas = {
 }
 
 DrawCanvas.drawContent();
-
-console.log('pap', pap);
